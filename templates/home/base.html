@@ -1,0 +1,156 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/style5.css">
+    <link rel="stylesheet" href="/static/css/style9.css">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1//static/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/94e3807b52.js" crossorigin="anonymous"></script>
+    <title>Trufit Kitchen | Make Your Dream Kitchen</title>
+</head>
+
+<body>
+ 
+        <div class="container">
+
+             
+  
+    {% if user.is_authenticated %}
+
+            <div class="navbar">
+                <div class="logo">
+                    {% for images in logo_image %}  
+                         <a href="/"><img src={{images.image.url}} alt="image" ></a> 
+                    {% endfor %}
+                    
+                </div>
+                <nav>
+                    <ul id="menu-items">
+                        <li><a href="/">HOME </a></li>
+                        <li><a href="/products">PRODUCTS</a></li>
+                        <li><a href="/about">ABOUT US</a></li>
+                        <li><a href="/contact">CONTACT US </a></li>
+                        <!-- <li><a href="#">Hi &nbsp;  {{user.first_name}} </a></li> -->
+                    </ul>
+                </nav>
+
+
+                {% for cart in cart_images %}            
+                <a href="/cart"><img src={{cart.image.url}} id="cart" alt="cart" width="30px" height="30px"></a>
+                {% endfor %}
+           
+               
+               
+
+
+                <img src="images/menu.png" class="menu-icon" onclick="ShowMenu()" alt="">
+                <a class="login-btn" href="#"> Hi &nbsp; {{user.first_name}}  </a>
+                <a class="login-btn" href="/accounts/logout"> Logout </a>
+            </div>
+
+
+    
+{% else %}
+<div class="navbar">
+    <div class="logo">
+        <a href="/"><img src="images/truefit logo.jpg" alt="image" ></a>
+    </div>
+    <nav>
+        <ul id="menu-items">
+            <li><a href="/">HOME </a></li>
+            <li><a href="/products">PRODUCTS</a></li>
+            <li><a href="/about">ABOUT US</a></li>
+            <li><a href="/contact">CONTACT US </a></li>
+        </ul>
+    </nav>
+    <a href="cart.html"><img src="images/cart.png" id="cart" alt="cart" width="30px" height="30px"></a>
+    <img src="images/menu.png" class="menu-icon" onclick="ShowMenu()" alt="">
+    <a class="login-btn" href="/accounts/login">  Login / Sign Up </a>
+</div>
+
+            
+
+{% endif %}
+
+    {% block content %}
+
+
+    {% endblock content %}
+
+
+
+
+    <!-- #####################33333 FOOTER ################################# -->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for android and ios mobile. </p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png" alt="">
+                        <img src="images/app-store.png" alt="">
+                    </div>
+                </div> -->
+                <div class="footer-col-2">
+                    <img src="images/truefit logo.jpg" alt="">
+                    <p>Apna Kitchen Sabka Kitchen .  </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons </li>
+                        <li>Blog Posts</li>
+                        <li>Return Policy </li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us On</h3>
+                    <ul>
+                        <li>Facebook </li>
+                        <li>Instagram</li>
+                        <li>Twitter </li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Trufit kitchen</p>
+        </div>
+    </footer>
+
+    <!-- ###################### JS For menu  -->
+    <script>
+        let menuItems = document.getElementById("menu-items");
+        menuItems.style.maxHeight = "0px";
+        function ShowMenu(){
+            if (menuItems.style.maxHeight == "0px"){
+                menuItems.style.maxHeight = "200px"
+            }
+            else{
+                menuItems.style.maxHeight = "0px"
+            }
+        }
+
+    </script>
+</body>
+
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/style2.css">
+    <link rel="stylesheet" href="/static/CSS/responsive.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    <!-- <script src="https://kit.fontawesome.com/ac7de67cdd.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/94e3807b52.js" crossorigin="anonymous"></script>
+    <title>Trufit Kitchen | Sign up</title>
+</head>
+
+<body >
+    <header class="acc-header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    {% for images in logo_image %}  
+                    <a href="/"><img src={{images.image.url}} alt="image" ></a> 
+               {% endfor %} </div>
+                <nav>
+                    <ul id="menu-items">
+                        <li ><a style="color:white;" href="/">HOME </a></li>
+                        <li ><a style="color:white;" href="/products">PRODUCTS</a></li>
+                        <li ><a style="color:white;" href="/about">ABOUT US</a></li>
+                        <!-- <li ><a style="color:white;" href="contact-us.html">CONTACT US </a></li> -->
+                    </ul>
+                </nav>
+                <!-- <a style="filter: invert(100%);" href="cart.html"><img src="images/cart.png" alt="cart" width="30px" height="30px"></a>
+                <a class="login-btn"style="color:white;border-color:white;" href="Account.html"> Login / Sign Up </a>
+                <img src="images/menu.png" class="menu-icon" onclick="ShowMenu()" alt=""> -->
+                
+            </div>
+        </div>
+
+
+        <!-- ######################## Account page ####################### -->
+        <section class="account-page">
+            <div class="container">
+                <!-- <div class="row" style="height:200px;">
+    
+                    <div class="shadow-box">
+                        <p>T</p>
+                        <p>R</p>
+                        <p>U</p>
+                        <p>F</p>
+                        <p>I</p>
+                        <p>T</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="shadow-box">
+                        <p>K</p>
+                        <p>I</p>
+                        <p>T</p>
+                        <p>C</p>
+                        <p>H</p>
+                        <p>E</p>
+                        <p>N</p>
+                    </div>
+                </div> -->
+    
+                <div class="row" style="margin-top: 50px; height: 400px;">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="indicator">
+                        </div>
+
+
+                        <form id="login-form" action="/accounts/login" method="post">
+                            {% csrf_token %}
+                            <input name="username" type="text" placeholder="Username">
+                            <input name="password" type="password" placeholder="Password">
+                            <div class="checkbox"><label for="check" >
+                                <input type="checkbox" name="check" id="check" > <p> Remember Me </p>
+                            </label></div>
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot password</a>
+                        </form>
+
+
+                        <form id="reg-form" action="/accounts/register" method="post">
+                            {% csrf_token %}
+                            <input name="first_name" type="text" placeholder="Enter First Name">
+                            <input name="last_name" type="text" placeholder="Enter Last Name">
+                            <input type="text" name="username" placeholder="Enter Username">
+                            <input type="email" name="email" placeholder="Enter your E-mail">
+                            <input type="password" name="password1" placeholder="Password">
+                            <input name="password2" type="password" placeholder="Re Enter Password">
+                            <button type="submit" class="btn">Register</button>
+    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    
+
+    
+
+
+    <!-- ######################### FOOTER ################################# -->
+
+    <!-- <footer id="footer" >
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for android and ios mobile. </p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png" alt="">
+                        <img src="images/app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/truefit logo.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, harum.
+                    </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons </li>
+                        <li>Blog Posts</li>
+                        <li>Return Policy </li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Follow Us On</h3>
+                    <ul>
+                        <li>Facebook </li>
+                        <li>Instagram</li>
+                        <li>Twitter </li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2022 - Jass Incorporation</p>
+        </div>
+    </footer> -->
+
+
+    <!-- ###################### JS For menu  -->
+    <script>
+        let menuItems = document.getElementById("menu-items");
+        menuItems.style.maxHeight = "0px";
+        function ShowMenu() {
+            if (menuItems.style.maxHeight == "0px") {
+                menuItems.style.maxHeight = "200px"
+            }
+            else {
+                menuItems.style.maxHeight = "0px"
+            }
+        }
+    </script>
+    <!-- JS for toggle form -->
+    <script>
+        let loginForm = document.getElementById("login-form");
+        let regForm = document.getElementById("reg-form");
+        let indicator = document.getElementById("indicator");
+
+        let register = function () {
+            regForm.style.transform = "translateX(0px)";
+            loginForm.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(100px)";
+        }
+        let login = function () {
+            regForm.style.transform = "translateX(350px)";
+            loginForm.style.transform = "translateX(350px)";
+            indicator.style.transform = "translateX(0px)";
+        }
+
+    </script>
+</body>
+
+</html>

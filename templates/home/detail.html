@@ -1,0 +1,147 @@
+
+
+{% extends 'home/base.html'%}
+{% block content %}
+
+
+
+
+    <!-- ################### SINGLE PRODUCT DETAILS ######################### -->
+    {% for product in product %}  
+    <section>
+        <div class="small-container single-product">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{{product.image.url}}" width="100%" height="475px" id="product-img" alt="">
+                    <div class="small-img-row">
+                        <div class="small-img-col">
+                          <img src="{{product.image.url}}" alt="" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="images/gallery-2.jpg" alt="" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="images/gallery-3.jpg" alt="" class="small-img">
+                        </div>
+                        <div class="small-img-col">
+                            <img src="images/gallery-4.jpg" alt="" class="small-img">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-2">
+                    <p>HOME | {{product.name}}</p>
+                    <h1>{{product.name}} By TRUFIT</h1>
+                    <h4>₹ {{product.price}}</h4>
+                    <select name="size" id="size">
+                        <option value="">Select Accessories </option>
+                        <option value="monitor">Monitor</option>
+                        <option value="regulator">Regulator</option>
+                        <option value="Cook_book">Cooking Book</option>
+                        <option value="cooking_gloves">Cooking Gloves</option>
+                        <option value="grill">Grill</option>
+                    </select>
+
+                    <form action="/cart/{{product.id}}">
+                      
+                    <input type="number" name="qty" id="qty" value="1">
+                    <button class="btn">Add To Cart</button>
+                    <!-- <a href="/cart/{{product.id}}" class="btn"> Add To Cart</a> -->
+                    <h3>Product Details <i class="fa fa-indent" aria-hidden="true"></i> </h3>
+                    <br>
+                    <p>{{product.description}}</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- #####################333 title ############################# -->
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>Related Products</h2>
+            <p>View More</p>
+        </div>
+    </div>
+
+    <!--############################################ PRoducts ##########################333 -->
+    <section>
+        <div class="small-container">
+            <div class="row">
+
+                {% for pro in top_product %}
+                {% if pro.top_product %}
+
+                <a href="/detail/{{pro.id}}">
+                <div class="col-4"><img src={{pro.image.url}} alt="">
+                    <h4>
+                        {{pro.name}}
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>₹{{pro.price}}</p>
+                </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+
+
+                <!-- <div class="col-4"><img src="images/product-2.jpg" alt="">
+                    <h4>
+                        Boiler
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>$0.0</p>
+                </div>
+                <div class="col-4"><img src="images/product-3.jpg" alt="">
+                    <h4>
+                        Toaster
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <p>$0.0</p>
+                </div>
+                <div class="col-4"><img src="images/product-4.jpg" alt="">
+                    <h4>
+                        Microwave Oven
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>$0.0</p>
+                </div>
+            </div>
+ -->
+
+        </div>
+    </section>
+
+
+
+
+
+    {% endblock content %}
+

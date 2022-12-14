@@ -1,0 +1,159 @@
+@media only screen and (max-width: 900px) {
+  #odd-image {
+    height: 330px;
+  }
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+  nav ul {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background: #333;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+  .header .container .row{
+    margin-top: 100px;
+  }
+  
+  nav ul li {
+    display: block;
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  nav ul li a {
+    color: #fff;
+  }
+  .text p {
+    font-size: 35px;
+  }
+  .text h1 {
+    font-size: 80px;
+    line-height: 65px;
+  }
+  .text h3 {
+    font-size: 25px;
+  }
+  .header::after {
+    height: 80vh;
+  }
+  .heading h1{
+    font-size: 50px;
+  }
+  .c-col-left{
+    margin: 270px 0;
+  }
+  .contact-col{
+    min-width: 575px;
+  }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  #odd-image {
+    height: 330px;
+  }
+  .row {
+    text-align: center;
+  }
+  .col-2,
+  .col-3,
+  .col-4 {
+    flex-basis: 100%;
+  }
+  .single-product .row {
+    text-align: left;
+  }
+  .single-product .col-2 {
+    padding: 20px 0;
+  }
+  .single-product h1 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .cart-info small,
+  .cart-info br {
+    display: none;
+  }
+  .cart-info p {
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .header::after {
+    height: 100vh;
+  }
+  .shadow-box p {
+    font-size: 68px;
+    font-weight: 700;
+  }
+  .wrapper{
+    flex-direction: column;
+  }
+  .heading h1{
+    font-size: 40px;
+  }
+  .heading{
+    margin-top: 100px;
+  }
+  .contact-col{
+    min-width: 500px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .header::after {
+    height: 110vh;
+  }
+  .categories{
+    margin: 100px 0;
+}
+  .text h1 {
+    font-size: 60px;
+    line-height: 50px;
+    animation: back 25s linear infinite;
+  }
+  .shadow-box p {
+    font-size: 68px;
+    font-weight: 700;
+  }
+  .heading h1{
+    font-size: 27px;
+    font-weight: bold;
+  }
+  .heading{
+    margin-top: 85px;
+  }
+  .contact-col{
+    min-width: 350px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .header::after {
+    height: 125vh;
+  }
+  .categories{
+    margin: 140px 0 100px;
+}
+  .text h1 {
+    font-size: 60px;
+    line-height: 50px;
+    animation: back 25s linear infinite;
+  }
+  .shadow-box p {
+    font-size: 68px;
+    font-weight: 700;
+  }
+  .heading h1{
+    font-size: 27px;
+    font-weight: bold;
+  }
+  .heading{
+    margin-top: 85px;
+  }
+  .contact-col{
+    min-width: 350px;
+  }
+}

@@ -1,0 +1,277 @@
+{% extends 'home/base.html'%}
+{% block content %}
+
+
+
+
+
+
+    <section>
+        <div class="small-container">
+            <div class="row row-2">
+                <h2 style="color:#000;">All Products </h2>
+                <select name="sort" id="sort" style="color: #000; background: transparent;">
+                    <option value="" style="color: #000;">Default Sorting</option>
+                    <option value="price" style="color: #000;">sort by price</option>
+                    <option value="popularity" style="color: #000;">sort by popularity</option>
+                    <option value="rating" style="color: #000;">sort by rating</option>
+                    <option value="sale" style="color: #000;">sort by sale</option>
+                </select>
+            </div>
+
+            <div class="row">
+                {% for product in product %}  
+                <a href="/detail/{{product.id}}">
+                <div class="col-4"><img src="{{product.image.url}}" alt="">
+                    <h4>
+                         {{product.name}}
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 4999</p>
+                </a>
+                </div>
+            
+                {% endfor %}
+
+
+
+
+            <!-- <div class="row">
+                <div class="col-4"><img src="images/product-1.jpg" alt="">
+                    <h4>
+                         Rice Maker
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 4999</p>
+                </div>
+                <div class="col-4"><img src="images/product-2.jpg" alt="">
+                    <h4>
+                        Boiler  
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 1999</p>
+                </div>
+                <div class="col-4"><img src="images/product-3.jpg" alt="">
+                    <h4>
+                        Toaster
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 2999</p>
+                </div>
+                <div class="col-4"><img src="images/product-4.jpg" alt="">
+                    <h4>
+                        Microwave Oven
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 11999/-</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"><img src="images/product-1.jpg" alt="">
+                    <h4>
+                        Rice Maker
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 4999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-2.jpg" alt="">
+                    <h4>
+                        Boiler   
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 1999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-3.jpg" alt="">
+                    <h4>
+                        Toaster
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 2999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-4.jpg" alt="">
+                    <h4>
+                        Microwave Oven
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 11999/-</p>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"><img src="images/product-5.jpg" alt="">
+                    <h4>
+                        Mixer
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 7999/-</p>
+                    
+                </div>
+                <div class="col-4"><img src="images/product-6.jpg" alt="">
+                    <h4>
+                        Gas Stove 
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 14999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-7.jpg" alt="">
+                    <h4>
+                        Grill Toaster                       
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 3999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-8.jpg" alt="">
+                    <h4>
+                        Weigher
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 1499/-</p>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-4"><img src="images/product-9.jpg" alt="">
+                    <h4>
+                        Rice Maker
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 4999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-10.jpg" alt="">
+                    <h4>
+                        Coffee Machine 
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 1999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-11.jpg" alt="">
+                    <h4>
+                        Rice Maker
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 4999/-</p>
+                </div>
+                <div class="col-4"><img src="images/product-12.jpg" alt="">
+                    <h4>
+                        Boiler
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>&#x20B9 1999/-</p>
+                </div>
+            </div>
+            <div class="page-btn">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span> &#x2192;</span>
+            </div>
+        </div>
+    </section>
+
+ 
+
+
+
+    {% endblock content %}
