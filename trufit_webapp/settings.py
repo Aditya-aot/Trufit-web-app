@@ -128,6 +128,14 @@ if DEBUG:
     MEDIA_URL = 'images/'
 
 
+
+
+# python anywhere
+STATIC_ROOT = '/home/trufit/Trufit-web-app/static'
+# python anywhere
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
